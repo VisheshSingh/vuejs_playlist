@@ -4,8 +4,17 @@
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
     <app-footer v-bind:title="title"></app-footer> -->
     <form-helper>
-      <h2 slot="title">{{title}}</h2>
-      <p slot="para">I am a paragraph of slot</p>
+      <div slot="form-header">
+        <h3>This is the title of form</h3>
+        <p>Information about form</p>
+      </div> 
+      <div slot="form-fields">
+        <input type="text" placeholder="Name" required>
+        <input type="password" placeholder="Password" required>
+      </div>  
+      <div slot="form-controls">
+        <button v-on:click="handleSubmit">Submit</button>
+      </div> 
     </form-helper>
   </div>
 </template>
@@ -26,7 +35,6 @@ export default {
   data() {
     return {
       // title: "Vue ninjas",
-      title: "I am a dynamic slot title",
       ninjas: [
         { name: "Ryu", speciality: "Vue Components", show: false },
         { name: "Crystal", speciality: "HTML Wizardry", show: false },
